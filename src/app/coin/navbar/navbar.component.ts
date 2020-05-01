@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coin } from '../coin.model';
-import { CoinService } from '../coin.service';
+import { CoinDataService } from '../coin-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,7 @@ import { CoinService } from '../coin.service';
 export class NavbarComponent implements OnInit {
   private _fetchCoins$: Observable<Coin[]>= this._data.coins$;
 
-  constructor(private _data: CoinService) { }
+  constructor(private _data: CoinDataService) { }
 
   ngOnInit(): void {
   }
