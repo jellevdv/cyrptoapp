@@ -1,1 +1,18 @@
-<p>coin-list works!</p>
+<div class="card " *ngFor="let coin of (coins$ | async )">
+  <div class="card-item "  >
+
+    <div class="currency level-item">
+    <div class="coin-name">
+      <p>{{coin.symbol}}</p>
+    </div>
+   </div>
+
+    <div class="price level-item">
+    <div class="coin-price">
+      <p>${{coin.price}}<small>({{coin.procent}}%)</small></p>
+    </div>
+    </div>
+
+  </div>
+
+</div>

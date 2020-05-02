@@ -8,6 +8,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './interceptors';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { httpInterceptorProviders } from './interceptors';
     AppRoutingModule,
     UserModule,
     HttpClientModule,
-    CoinModule
+    CoinModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -18,6 +18,6 @@ export class CoinResolver implements Resolve<Coin> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Coin> {
-    return this.coinService.getCoin$(route.params['id']);
+    return this.coinService.getCoins$(route.params['id']);
   }
 }

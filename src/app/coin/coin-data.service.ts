@@ -16,7 +16,6 @@ export class CoinDataService {
     this._coins$
       .pipe(
         catchError((err) => {
-          // temporary fix, while we use the behaviorsubject as a cache stream
           this._coins$.error(err);
           return throwError(err);
         })
@@ -32,7 +31,7 @@ export class CoinDataService {
   }
 
   get coins$(): Observable<Coin[]> {
-    return this.http.get(`${environment.apiUrl}/coins/`).pipe(
+    return this.http.get(`${environment.apiUrl}/coins`).pipe(
       tap(console.log),
       shareReplay(1),
       catchError(this.handleError),
@@ -40,9 +39,9 @@ export class CoinDataService {
     );
   }
 
-  getCoin$(id: string): Observable<Coin> {
+  getCoins$(name: string): Observable<Coin> {
     return this.http
-      .get(`${environment.apiUrl}/coins/${id}`)
+      .get(`${environment.apiUrl}/coins/get=${name}`)
       .pipe(catchError(this.handleError), map(Coin.fromJSON)); // returns just one coin, as json
   }
 

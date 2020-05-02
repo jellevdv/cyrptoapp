@@ -1,0 +1,40 @@
+@import "../../main-styles.scss";
+
+.navbar-menu {
+  background-color: $dark-grey;
+
+  .coin-item {
+    border-right: 1px solid $light-grey;
+    font-size: 14px;
+    text-align: justify;
+  }
+
+  .navbar-item {
+    display: flex;
+    color: $light-grey;
+    justify-content: space-between;
+    align-items: center;
+
+    .coin-name {
+      padding-right: 5px;
+    }
+    .coin-procent {
+      padding-left: 5px;
+    }
+
+    .neg {
+      color: $red;
+    }
+
+    .pos {
+      color: $green;
+    }
+
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+    &:hover {
+      background-color: lightslategrey;
+      font-weight: bold;
+    }
+  }
+}

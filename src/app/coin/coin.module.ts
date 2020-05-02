@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
-import {Coin} from './coin.model';
 import { CoinDetailComponent } from './coin-detail/coin-detail.component';
 import { CoinListComponent } from './coin-list/coin-list.component';
 import { CoinResolver } from './CoinResolver';
 import { Routes } from '@angular/router';
+import { CoinFilterPipe } from './coin-filter.pipe';
 
 
 const routes: Routes = [
@@ -16,17 +15,16 @@ const routes: Routes = [
     resolve: { coin: CoinResolver },
   },
 ];
-
 @NgModule({
   declarations: [
-    NavbarComponent,
     CoinDetailComponent,
-    CoinListComponent],
+    CoinListComponent,
+    CoinFilterPipe],
   imports: [
     CommonModule
   ],
   exports: [
-     NavbarComponent
+     CoinListComponent
   ]
 })
 export class CoinModule { }
