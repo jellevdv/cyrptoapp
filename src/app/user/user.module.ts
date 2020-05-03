@@ -19,6 +19,9 @@ const routes: Routes = [
     MaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
+  ],
+  exports:[
+    LoginComponent,RegisterComponent
   ]
 })
 export class UserModule { }

@@ -24,7 +24,8 @@ const routes: Routes = [
     CommonModule
   ],
   exports: [
-     CoinListComponent
+     CoinListComponent,
+     CoinDetailComponent
   ]
 })
 export class CoinModule { }

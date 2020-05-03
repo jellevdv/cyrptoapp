@@ -1,5 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 import { map, catchError, tap, shareReplay, switchMap } from 'rxjs/operators';
 import { Coin } from './coin.model';
 import { Observable, throwError, BehaviorSubject, of } from 'rxjs';
@@ -9,29 +13,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class CoinDataService {
-  private _coins$ = new BehaviorSubject<Coin[]>([]);
-  private _coins: Coin[];
 
-  constructor(private http: HttpClient) {
-    this._coins$
-      .pipe(
-        catchError((err) => {
-          this._coins$.error(err);
-          return throwError(err);
-        })
-      )
-      .subscribe((coins: Coin[]) => {
-        this._coins = coins;
-        this._coins$.next(this._coins);
-      });
-  }
-
-  get allCoins$(): Observable<Coin[]> {
-    return this._coins$;
-  }
+  constructor(private http: HttpClient) {}
 
   get coins$(): Observable<Coin[]> {
-    return this.http.get(`${environment.apiUrl}/coins`).pipe(
+    return this.http.get(`${environment.apiUrl}/coins/`).pipe(
       tap(console.log),
       shareReplay(1),
       catchError(this.handleError),
@@ -39,41 +25,13 @@ export class CoinDataService {
     );
   }
 
-  getCoins$(name: string): Observable<Coin> {
+  getCoin$(id: string): Observable<Coin> {
     return this.http
-      .get(`${environment.apiUrl}/coins/get=${name}`)
-      .pipe(catchError(this.handleError), map(Coin.fromJSON)); // returns just one coin, as json
-  }
-
-  /*
-  addNewCoin(coin: Coin) {
-    return this.http
-      .post(`${environment.apiUrl}/recipes/`, recipe.toJSON())
-      .pipe(catchError(this.handleError), map(Recipe.fromJSON))
-      .pipe(
-        // temporary fix, while we use the behaviorsubject as a cache stream
-        catchError((err) => {
-          this._recipes$.error(err);
-          return throwError(err);
-        }),
-        tap((rec: Recipe) => {
-          this._recipes = [...this._recipes, rec];
-          this._recipes$.next(this._recipes);
-        })
-      );
+      .get(`${environment.apiUrl}/coins/${id}`)
+      .pipe(catchError(this.handleError), map(Coin.fromJSON)); // returns just one recipe, as json
   }
 
 
-  deleteRecipe(recipe: Recipe) {
-    return this.http
-      .delete(`${environment.apiUrl}/recipes/${recipe.id}`)
-      .pipe(tap(console.log), catchError(this.handleError))
-      .subscribe(() => {
-        this._recipes = this._recipes.filter((rec) => rec.id != recipe.id);
-        this._recipes$.next(this._recipes);
-      });
-  }
-  */
 
   handleError(err: any): Observable<never> {
     let errorMessage: string;
