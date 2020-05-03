@@ -42,9 +42,6 @@ export class MainNavComponent {
     return this._fetchCoins$;
   }
 
-  goToCoin(id:number){
-    this._router.navigate(['/detail/id']);
-  }
 
 
 }
