@@ -3,17 +3,11 @@
     Portfolios
     <i class="fas fa-plus-circle plus" (click)="nieuwPortfolioClicked()"></i>
   </p>
-  <a class="panel-block">
+  <a class="panel-block" *ngFor="let portfolio of (portfolios$ | async )">
     <span class="panel-icon">
       <i class="fas fa-wallet" aria-hidden="true" ></i>
     </span>
-    Main
-  </a>
-  <a class="panel-block">
-    <span class="panel-icon"  >
-      <i class="fas fa-wallet" aria-hidden="true" ></i>
-    </span>
-    Watchlist
+    {{portfolio.name}}
   </a>
 </article>
 
