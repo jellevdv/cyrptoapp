@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioDataService } from '../portfolio-data.service';
 import { Portfolio } from '../portfolio.model';
-import { Observable } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-all-portfolios',
@@ -11,10 +19,16 @@ import { Observable } from 'rxjs';
 export class AllPortfoliosComponent implements OnInit {
   private _fetchPortfolios$: Observable<Portfolio[]>= this._data.portfolios$;
   niewPortfolioMaken: boolean;
+  public newPortfolio: FormGroup;
+  public errorMessage: string = '';
+  confirmationMessage: string;
 
-  constructor(private _data: PortfolioDataService) { }
+  constructor(private _data: PortfolioDataService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.newPortfolio = this.fb.group({
+      name: ['', Validators.required]})
   }
 
 
@@ -28,5 +42,24 @@ export class AllPortfoliosComponent implements OnInit {
 
   closeClicked():void{
     this.niewPortfolioMaken=false;
+  }
+
+
+  onSubmit() {
+    this._data
+    .addNewPortfolio(new Portfolio(this.newPortfolio.value.name))
+    .pipe(
+      catchError((err) => {
+        this.errorMessage = err;
+        return EMPTY;
+      })
+    )
+    .subscribe((p: Portfolio) => {
+      this.confirmationMessage = `a portfolio for ${p.name} was successfully added`;
+    });
+
+  this.newPortfolio = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(2)]]
+  });
   }
 }

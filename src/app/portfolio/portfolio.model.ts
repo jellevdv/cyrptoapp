@@ -10,6 +10,7 @@ interface PortfolioJSON {
 export class Portfolio {
   private _id: number;
   private _totalValue: number;
+  private _coinsOfPortfolio: PortCoin[];
 
   constructor(
     private _name: string
@@ -21,7 +22,16 @@ export class Portfolio {
       json.name
     );
     portfolio._id = json.id;
+    portfolio._coinsOfPortfolio=json.coinsOfPortfolio;
     return portfolio;
+  }
+
+  toJSON(): PortfolioJSON {
+    return <PortfolioJSON>{
+      name: this.name,
+      totalValue: this._totalValue,
+      coinsOfPortfolio: this._coinsOfPortfolio
+    };
   }
 
   get id(): number {
@@ -33,6 +43,10 @@ export class Portfolio {
 
   get totalValue(): number{
     return this._totalValue;
+  }
+
+  get coinsOfPortfolio(): PortCoin[]{
+    return this._coinsOfPortfolio;
   }
 
 

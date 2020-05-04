@@ -15,6 +15,7 @@
   <div class="modal is-active">
     <div class="modal-background"></div>
     <div class="modal-card">
+      <form [formGroup]="newPortfolio" (ngSubmit)="onSubmit()">
       <header class="modal-card-head">
         <p class="modal-card-title">New portfolio</p>
         <button class="delete" aria-label="close" (click)=closeClicked()></button>
@@ -28,6 +29,9 @@
             <input class="input"  placeholder="Name" formControlName="name"  aria-label="name">
           </div>
         </div>
+        <p class="error" *ngIf="errorMessage" data-cy="appError">
+          got an error while loading the recipe list: {{ errorMessage }}
+        </p>
       </section>
 
 
@@ -35,5 +39,7 @@
         <button class="button is-success" type="submit">Make new portfolio</button>
         <button class="button" (click)=closeClicked()>Cancel</button>
       </footer>
+
+      </form>
     </div>
   </div>

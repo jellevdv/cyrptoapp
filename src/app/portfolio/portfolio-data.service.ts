@@ -27,6 +27,12 @@ export class PortfolioDataService {
       .pipe(catchError(this.handleError), map(Portfolio.fromJSON)); // returns just one recipe, as json
   }
 
+  addNewPortfolio(portfolio: Portfolio) {
+    return this.http
+      .post(`${environment.apiUrl}/portfolios/`,portfolio.toJSON())
+      .pipe(catchError(this.handleError));
+  }
+
   handleError(err: any): Observable<never> {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {
