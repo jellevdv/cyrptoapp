@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import {PortfolioModule} from './portfolio/portfolio.module';
 
 
 
@@ -26,7 +27,8 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
     CoinModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    PortfolioModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

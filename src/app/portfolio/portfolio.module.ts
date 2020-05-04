@@ -10,6 +10,9 @@ import { PortcoinsListComponent } from './portcoins-list/portcoins-list.componen
   declarations: [AllPortfoliosComponent, AddPortfolioComponent, PortcoinsListComponent],
   imports: [
     CommonModule
+  ],
+  exports:[
+    AllPortfoliosComponent
   ]
 })
 export class PortfolioModule { }

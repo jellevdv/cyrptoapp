@@ -1,0 +1,26 @@
+@import '../../../main-styles.scss';
+
+.panel{
+  float:right;
+  min-width: 22.5%;
+  margin: 1.4em;
+
+  .plus{
+    //nog rechts uitlijnen
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+
+  .actief {
+    font-weight: bolder;
+    color:$dark-grey;
+    background-color: $light-grey;
+
+    .panel-icon{
+      color:$green;
+    }
+  }
+}

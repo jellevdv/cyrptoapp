@@ -1,1 +1,45 @@
-<p>all-portfolios works!</p>
+<article class="panel is-primary">
+  <p class="panel-heading">
+    Portfolios
+    <i class="fas fa-plus-circle plus" (click)="nieuwPortfolioClicked()"></i>
+  </p>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-wallet" aria-hidden="true" ></i>
+    </span>
+    Main
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon"  >
+      <i class="fas fa-wallet" aria-hidden="true" ></i>
+    </span>
+    Watchlist
+  </a>
+</article>
+
+<div *ngIf="niewPortfolioMaken" >
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">New portfolio</p>
+        <button class="delete" aria-label="close" (click)=closeClicked()></button>
+      </header>
+
+
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Name portfolio</label>
+          <div class="control">
+            <input class="input"  placeholder="Name" formControlName="name"  aria-label="name">
+          </div>
+        </div>
+      </section>
+
+
+      <footer class="modal-card-foot">
+        <button class="button is-success" type="submit">Make new portfolio</button>
+        <button class="button" (click)=closeClicked()>Cancel</button>
+      </footer>
+    </div>
+  </div>
