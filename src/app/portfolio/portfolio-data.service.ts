@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Portfolio } from './portfolio.model';
 import { environment } from 'src/environments/environment';
-import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { shareReplay, tap, catchError, map } from 'rxjs/operators';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { shareReplay, tap, catchError, map, switchMap } from 'rxjs/operators';
+import { PortCoin } from './portfcoin.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioDataService {
+  private _reloadPortCoins$ = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +23,7 @@ export class PortfolioDataService {
     );
   }
 
+
   getportfolio$(name: string): Observable<Portfolio> {
     return this.http
       .get(`${environment.apiUrl}/portfolios/get=${name}`)
@@ -32,6 +35,28 @@ export class PortfolioDataService {
       .post(`${environment.apiUrl}/portfolios/`,portfolio.toJSON())
       .pipe(catchError(this.handleError));
   }
+
+
+  getPortCoins$(name: string) {
+    return this._reloadPortCoins$.pipe(
+      switchMap(() => this.fetchPortCoins$(name))
+    );
+  }
+
+
+  fetchPortCoins$(name: string) {
+    let params = new HttpParams();
+    params = name ? params.append('name', name) : params;
+    return this.http.get(`${environment.apiUrl}/portfolios/get=`, { params }).pipe(
+      catchError(this.handleError),
+      map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
+    );
+  }
+
+
+
+
+
 
   handleError(err: any): Observable<never> {
     let errorMessage: string;

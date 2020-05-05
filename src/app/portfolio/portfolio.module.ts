@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports:[
-    AllPortfoliosComponent
+    AllPortfoliosComponent, PortcoinsListComponent
   ]
 })
 export class PortfolioModule { }

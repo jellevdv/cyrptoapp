@@ -1,0 +1,82 @@
+@import '../../../main-styles.scss';
+
+
+//tabel currency-price-balance
+.level{
+  max-width: 70%;
+  background-color: white;
+
+
+
+.heading{
+  padding: 1em;
+  font-size: 1.5em;
+}
+}
+
+//card items
+.card{
+  width: 70%;
+  border: medium;
+  padding: 1.1em;
+  background-color: C0C0C0;
+  margin:1.1em;
+  margin-bottom: 0.9em;
+
+.card-item{
+  display: flex;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: $light-grey;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin: 5px;
+  &:hover{
+    background-color: $light-grey;
+    border: 1.5px solid $dark-grey;
+    .delete{
+      visibility: unset;
+    }
+  }
+
+
+
+  .currency,.price,.balance{
+    display: flex;
+    flex-grow: 1;
+    font-size: 18px;
+    margin-left: 5px;
+    align-items: center;
+
+    .neg {
+      p {
+          color: $red;
+      }
+
+      .amount {
+          background-color: $light-red;
+      }
+  }
+
+  .pos {
+      p {
+          color: $green;
+      }
+
+      .amount {
+          background-color: $light-green;
+      }
+  }
+  }
+
+  .delete{
+    position: right;
+    visibility: hidden;
+    background-color: $red;
+
+  }
+
+  }
+
+
+}
