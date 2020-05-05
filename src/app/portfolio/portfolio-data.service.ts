@@ -32,7 +32,7 @@ export class PortfolioDataService {
 
   addNewPortfolio(portfolio: Portfolio) {
     return this.http
-      .post(`${environment.apiUrl}/portfolios/`,portfolio.toJSON())
+      .post(`${environment.apiUrl}/portfolios/add=${portfolio.name}`,portfolio.toJSON())
       .pipe(catchError(this.handleError));
   }
 

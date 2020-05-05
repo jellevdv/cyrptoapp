@@ -57,6 +57,7 @@ export class AllPortfoliosComponent implements OnInit {
     .subscribe((p: Portfolio) => {
       this.confirmationMessage = `a portfolio for ${p.name} was successfully added`;
     });
+    window.location.reload();
 
   this.newPortfolio = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]]

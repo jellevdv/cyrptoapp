@@ -12,15 +12,12 @@
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
-        <a mat-list-item [routerLink]="['coins/list']">all coins</a>
-      </div>
-      <div class="navbar-item">
+      <div class="navbar-item loginlogout">
 
 
          <span *ngIf="loggedInUser$ | async as user; else loginTemplate">
         {{ user }}
-        <button (click)="logout()" mat-flat-button>
+        <button (click)="logout()" class="button is-secondary">
           logout
         </button>
       </span>
@@ -31,18 +28,17 @@
           </button>
         </span>
       </ng-template>
-
-
       </div>
     </div>
 
   </div>
 </nav>
 
+<button class="button is-primary b" [routerLink]="['coins/list']">All coins</button>
+<button class="button is-primary b" [routerLink]="['portfolios']">PortfolioManager</button>
+
 <body>
   <ng-content></ng-content>
-  <app-all-portfolios></app-all-portfolios>
-  <app-portcoins-list></app-portcoins-list>
 </body>
 
 

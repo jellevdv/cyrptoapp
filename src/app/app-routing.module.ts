@@ -7,6 +7,8 @@ import { CoinDetailComponent } from './coin/coin-detail/coin-detail.component';
 import { CoinResolver } from './coin/CoinResolver';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { AllPortfoliosComponent } from './portfolio/all-portfolios/all-portfolios.component';
 
 /*
 const routes = [
@@ -28,7 +30,8 @@ const routes: Routes = [
   {path: 'coins/detail/:id', component: CoinDetailComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  { path: '**', component: PageNotFoundComponent },
+  {path: 'portfolios', component: AllPortfoliosComponent},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
