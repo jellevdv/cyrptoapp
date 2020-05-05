@@ -11,6 +11,7 @@ import { httpInterceptorProviders } from './interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import {PortfolioModule} from './portfolio/portfolio.module';
+import { ArticlesComponent } from './news/articles/articles.component';
 
 
 
@@ -18,7 +19,8 @@ import {PortfolioModule} from './portfolio/portfolio.module';
   declarations: [
     AppComponent,
     MainNavComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,

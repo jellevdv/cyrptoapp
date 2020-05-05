@@ -9,14 +9,10 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { AllPortfoliosComponent } from './portfolio/all-portfolios/all-portfolios.component';
+import { ArticlesComponent } from './news/articles/articles.component';
 
-/*
-const routes = [
-  { path: 'coins/list', component: CoinListComponent },
-  {path: 'coins/detail/:id', component: CoinDetailComponent},
-  //{ path: '', redirectTo: 'coin/list', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
-];*/
+
+
 
 const routes: Routes = [
   {
@@ -31,6 +27,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'portfolios', component: AllPortfoliosComponent},
+  {path:'news',component:ArticlesComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
