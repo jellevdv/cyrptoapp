@@ -44,10 +44,10 @@ export class PortfolioDataService {
   }
 
 
-  fetchPortCoins$(name: string) {
+  fetchPortCoins$(name?: string) {
     let params = new HttpParams();
-    params = name ? params.append('name', name) : params;
-    return this.http.get(`${environment.apiUrl}/portfolios/get=`, { params }).pipe(
+    params = name ? params.append('get=', name) : params;
+    return this.http.get(`${environment.apiUrl}/portfolios/`, { params }).pipe(
       catchError(this.handleError),
       map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
     );

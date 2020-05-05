@@ -1,4 +1,8 @@
 <nav class="level">
+  <h1> {{portfolioNaam}}</h1>
+
+</nav>
+<nav class="level">
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Currency</p>
@@ -15,30 +19,31 @@
     </div>
   </div>
 </nav>
-<!-- <hr class="line" style="margin-top: -50px;"> -->
 
 
 <div class="card ">
-  <div class="card-item "  >
+  <div class="card-item " *ngFor="let portcoin of (portCoins$ | async )" >
 
     <div class="currency level-item">
     <div class="coin-name">
-      <p>ETHEREUM</p>
+      <p>{{portcoin.coin.name}}</p>
     </div>
    </div>
 
     <div class="price level-item">
     <div class="coin-price">
-      <p>€ 1 <small>(-5%)</small></p>
+      <p>${{portcoin.coin.price}} <small>({{portcoin.coin.procent}}%)</small></p>
     </div>
     </div>
 
     <div class="balance level-item">
       <div class="coin-total-value">
-        <p>€250 <small>(2} ETH)</small></p>
+        <p>$5<small>({{portcoin.amount}} {{portcoin.coin.symbol}})</small></p>
       </div>
     </div>
     <a class="delete is-medium" ></a>
   </div>
 
 </div>
+
+

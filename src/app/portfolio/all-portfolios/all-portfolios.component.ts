@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { PortfolioDataService } from '../portfolio-data.service';
 import { Portfolio } from '../portfolio.model';
 import { Observable, EMPTY } from 'rxjs';
@@ -22,6 +22,8 @@ export class AllPortfoliosComponent implements OnInit {
   public newPortfolio: FormGroup;
   public errorMessage: string = '';
   confirmationMessage: string;
+  gekozenPortfolio: Portfolio ;
+  naam: string="error";
 
   constructor(private _data: PortfolioDataService,
     private fb: FormBuilder) { }
@@ -42,6 +44,11 @@ export class AllPortfoliosComponent implements OnInit {
 
   closeClicked():void{
     this.niewPortfolioMaken=false;
+  }
+
+  bepPortfolioClicked(portfolio: Portfolio){
+    this.gekozenPortfolio=portfolio;
+    this.naam=portfolio.name;
   }
 
 
