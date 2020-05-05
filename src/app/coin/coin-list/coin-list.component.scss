@@ -1,3 +1,21 @@
-.card-item{
-  display: inline-flex;
+@import '../../../main-styles.scss';
+
+.table{
+  width: 70%;
+  margin: 25px;
+
+
+  .tr{
+    &:hover{
+      background-color:$light-grey;
+    }
+  }
+}
+
+.neg {
+  color: $red;
+}
+
+.pos {
+color: $green;
 }

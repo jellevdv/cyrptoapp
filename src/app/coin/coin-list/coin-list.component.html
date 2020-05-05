@@ -1,18 +1,18 @@
-<div class="card " *ngFor="let coin of (coins$ | async )">
-  <div class="card-item "  >
-
-    <div class="currency level-item">
-    <div class="coin-name">
-      <p>{{coin.symbol}}</p>
-    </div>
-   </div>
-
-    <div class="price level-item">
-    <div class="coin-price">
-      <p>${{coin.price}}<small>({{coin.procent}}%)</small></p>
-    </div>
-    </div>
-
-  </div>
-
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Procent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coin of (coins$ | async )" class="tr" >
+      <th>Logo</th>
+      <td>{{coin.name}}</td>
+      <td>${{coin.price}}</td>
+      <td [ngClass]="{ 'pos': coin.procent >=0, 'neg': coin.procent < 0 }">{{coin.procent}}%</td>
+    </tr>
+  </tbody>
+</table>

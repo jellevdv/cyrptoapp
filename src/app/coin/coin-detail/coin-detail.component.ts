@@ -19,4 +19,5 @@ export class CoinDetailComponent implements OnInit {
     this.route.data.subscribe(item => (this.coin = item['coin']));
   }
 
+
 }
