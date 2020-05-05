@@ -7,10 +7,18 @@ import { NewsDataService } from '../news-data.service';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent implements OnInit {
+  objectKeys = Object.keys;
+  articles: any;
 
   constructor(private _data: NewsDataService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._data.getArticles()
+      .subscribe(res => {
+        this.articles = res;
+        //console.log(res);
+      });
+  }
 
 
 }

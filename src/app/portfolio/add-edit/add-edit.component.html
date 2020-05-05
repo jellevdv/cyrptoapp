@@ -1,0 +1,69 @@
+<div *ngIf="addClickedB">
+  <div class="formulier">
+    <div class="field has-addons">
+      <div class="control">
+        <input  class="input" type="text"
+        placeholder="filter"
+        type="text"
+        data-cy="filterInput"
+        type='text'
+        placeholder='Coin name' >
+      </div>
+      <div class="control">
+
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="Amount">
+      </div>
+      <div class="control">
+
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="Price paid in Euro">
+      </div>
+      <div class="control">
+
+      </div>
+    </div>
+    <div class="field">
+      <p class="control">
+        <span class="select">
+          <select>
+            <option>Per coin</option>
+            <option>Total value</option>
+          </select>
+        </span>
+      </p>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-primary" (click)="submitClicked()">Submit</button>
+      </div>
+      <div class="control">
+        <button class="button" (click)="cancelClicked()">Cancel</button>
+      </div>
+    </div>
+    </div>
+</div>
+
+<section class="buttons">
+<button class="button is-primary "  (click)="addClicked()">   <!--fas fa-plus-square -->
+  <i class="fas fa-plus" aria-hidden="true"></i>
+  &nbsp; Add
+</button>
+
+<button class="button is-primary" >   <!--fas fa-wrench"-->
+    <i class="fas fa-wrench" aria-hidden="true"></i>
+    &nbsp; Edit
+</button>
+
+<button class="button is-primary "  (click)="refreshPage()">  <!--fas fa-sync-->
+  <i class="fas fa-sync" aria-hidden="true"></i>
+  &nbsp; Refresh
+</button>
+
+</section>

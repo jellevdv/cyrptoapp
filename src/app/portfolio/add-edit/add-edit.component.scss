@@ -1,0 +1,41 @@
+@import '../../../main-styles.scss';
+
+.formulier{
+  display: flex;
+  padding-left: 130px;
+  margin: 1.25em;
+  margin-bottom: -0.7em;
+
+  .field{
+    padding: 2.5px;
+  }
+}
+
+.buttons{
+  max-width: 70%;
+  margin-left:40%; //40.5
+  display: inline;
+  justify-content: right;
+  align-items: right;
+
+
+  .button{
+    margin: 1.15em;
+    font-size: 1.25em;
+    font-style: 'Lato';
+    border-radius: 5%;
+    padding: 6x;
+    white-space: 1.2em;
+
+    &:hover{
+      background-color: lighten($purple, 10);
+      color: whitesmoke;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &:active{
+      color:$green;
+    }
+  }
+}

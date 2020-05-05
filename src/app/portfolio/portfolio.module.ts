@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { AllPortfoliosComponent } from './all-portfolios/all-portfolios.component';
 import { PortcoinsListComponent } from './portcoins-list/portcoins-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddEditComponent } from './add-edit/add-edit.component';
 
 
 
 @NgModule({
-  declarations: [AllPortfoliosComponent, PortcoinsListComponent],
+  declarations: [AllPortfoliosComponent, PortcoinsListComponent, AddEditComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule

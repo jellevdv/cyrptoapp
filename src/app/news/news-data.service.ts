@@ -11,9 +11,6 @@ import "rxjs/add/operator/map";
   providedIn: 'root'
 })
 export class NewsDataService {
-  handleError(handleError: any): import("rxjs").OperatorFunction<any, any> {
-    throw new Error("Method not implemented.");
-  }
   private _topArticles: any;
 
 
@@ -21,14 +18,14 @@ export class NewsDataService {
 
 
   getArticles() {
-
     return this._http
       .get(
-        "http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-05&sortBy=publishedAt&apiKey=1c452bc507eaf0b876079c353d2364d8"
+        "http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-05&sortBy=publishedAt&apiKey=e6839081a22f4cdd9f41d2cca4a69bfd"
       )
       .map((result) => (this._topArticles = result));
   }
 
+/*
   get articles$(): Observable<Article[]> {
     return this._http.get("http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-05&sortBy=publishedAt&apiKey=1c452bc507eaf0b876079c353d2364d8")
     .pipe(
@@ -38,6 +35,7 @@ export class NewsDataService {
       map((list: any[]): Article[] => list.map(Article.fromJSON))
     );
   }
+  */
 
 
 }
