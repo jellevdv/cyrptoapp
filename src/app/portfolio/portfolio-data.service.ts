@@ -43,7 +43,7 @@ export class PortfolioDataService {
     );
   }
 
-
+/*
   fetchPortCoins$(name?: string) {
     let params = new HttpParams();
     params = name ? params.append('get=', name) : params;
@@ -52,6 +52,23 @@ export class PortfolioDataService {
       map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
     );
   }
+  */
+
+ fetchPortCoins$(name: string) {
+  return this.http.get(`${environment.apiUrl}/portfolios/get=${name}`).pipe(
+    catchError(this.handleError),
+    map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
+  );
+}
+
+
+get portcoinsOfPortfolio$(): Observable<PortCoin[]> {
+  return this.http.get(`${environment.apiUrl}/portfolios/get=Main`).pipe(
+    tap(console.log),
+    catchError(this.handleError),
+    map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
+  );
+}
 
 
 
