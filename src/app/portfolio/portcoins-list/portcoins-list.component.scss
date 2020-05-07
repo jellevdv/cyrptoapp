@@ -80,3 +80,15 @@
 
 
 }
+
+.portNaam{
+     display: flex;
+     margin-left: 15px;
+    align-items: center;
+    background-color: $purple;
+
+    .titel{
+      padding: 5px;
+      color: $light-grey;
+    }
+}
