@@ -26,22 +26,21 @@
 
 <div class="card ">
   <div class="card-item " *ngFor="let portcoin of (_fetchPortCoins$ | async)" >
-
     <div class="currency level-item">
     <div class="coin-name">
-      <p>{{portcoin.coin.name}}</p>
+      <p>{{portcoin.amount}}</p>
     </div>
    </div>
 
     <div class="price level-item">
     <div class="coin-price">
-      <p>${{portcoin.coin.price}} <small>({{portcoin.coin.procent}}%)</small></p>
+      <p>${{portcoin.coin}} <small>({{portcoin.coin}}%)</small></p>
     </div>
     </div>
 
     <div class="balance level-item">
       <div class="coin-total-value">
-        <p>$5<small>({{portcoin.amount}} {{portcoin.coin.symbol}})</small></p>
+        <p>$5<small>({{portcoin.amount}} {{portcoin.coin}})</small></p>
       </div>
     </div>
     <a class="delete is-medium" ></a>
