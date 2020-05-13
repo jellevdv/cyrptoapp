@@ -23,7 +23,7 @@ export class AllPortfoliosComponent implements OnInit {
   public errorMessage: string = '';
   confirmationMessage: string;
   gekozenPortfolio: Portfolio ;
-  naam: string="error";
+  naam: string="";
 
   constructor(private _data: PortfolioDataService,
     private fb: FormBuilder) { }
@@ -49,6 +49,7 @@ export class AllPortfoliosComponent implements OnInit {
   bepPortfolioClicked(portfolio: Portfolio){
     this.gekozenPortfolio=portfolio;
     this.naam=portfolio.name;
+    console.log(portfolio.name);
   }
 
 

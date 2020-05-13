@@ -36,13 +36,13 @@ export class PortfolioDataService {
       .pipe(catchError(this.handleError));
   }
 
-
+/*
   getPortCoins$(name: string) {
     return this._reloadPortCoins$.pipe(
       switchMap(() => this.fetchPortCoins$(name))
     );
   }
-
+*/
 /*
   fetchPortCoins$(name?: string) {
     let params = new HttpParams();
@@ -53,12 +53,25 @@ export class PortfolioDataService {
     );
   }
   */
-
+/*
  fetchPortCoins$(name: string) {
   return this.http.get(`${environment.apiUrl}/portfolios/get=${name}`).pipe(
     catchError(this.handleError),
     map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
   );
+}
+*/
+fetchPortCoins$(portfolioName: string):Observable<PortCoin[]>  {
+  if(portfolioName==""){
+    return new Observable<PortCoin[]>();
+  }else{
+    return this.http.get(`${environment.apiUrl}/portfolios/get=${{portfolioName}}`).pipe(
+      tap(console.log),
+      catchError(this.handleError),
+      map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
+    );
+  }
+
 }
 
 
@@ -69,6 +82,7 @@ get portcoinsOfPortfolio$(): Observable<PortCoin[]> {
     map((list: any[]): PortCoin[] => list.map(PortCoin.fromJSON))
   );
 }
+
 
 
 
