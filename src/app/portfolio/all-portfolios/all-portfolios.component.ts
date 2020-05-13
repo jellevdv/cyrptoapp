@@ -52,6 +52,11 @@ export class AllPortfoliosComponent implements OnInit {
     console.log(portfolio.name);
   }
 
+  deleteClicked(portfolio: Portfolio):void{
+    this._data.deletePortfolio(portfolio);
+    window.location.reload();
+  }
+
 
   onSubmit() {
     this._data

@@ -83,6 +83,15 @@ get portcoinsOfPortfolio$(): Observable<PortCoin[]> {
   );
 }
 
+deletePortfolio(portfolio: Portfolio) {
+  return this.http
+    .delete(`${environment.apiUrl}/portfolios/delete=${portfolio.name}`)
+    .pipe(tap(console.log), catchError(this.handleError))
+    .subscribe(() => {
+      this._reloadPortCoins$.next(true);
+    });
+}
+
 
 
 

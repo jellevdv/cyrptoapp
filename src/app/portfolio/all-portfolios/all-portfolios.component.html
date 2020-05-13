@@ -3,12 +3,15 @@
     Portfolios
     <i class="fas fa-plus-circle plus" (click)="nieuwPortfolioClicked()"></i>
   </p>
-  <a class="panel-block" *ngFor="let portfolio of (portfolios$ | async )" (click)="bepPortfolioClicked(portfolio)"
+  <a class="panel-block" *ngFor="let portfolio of (portfolios$ | async )"
   [ngClass]="{ 'actief': portfolio==gekozenPortfolio}" >
     <span class="panel-icon">
       <i class="fas fa-wallet" aria-hidden="true" ></i>
     </span>
-    {{portfolio.name}}
+    <div (click)="bepPortfolioClicked(portfolio)"> {{portfolio.name}}</div>
+
+    <div (click)="deleteClicked(portfolio)"><a class="far fa-trash-alt" ></a> <br></div>
+
   </a>
 </article>
 <app-portcoins-list [portfolioNaam]="naam"></app-portcoins-list>
@@ -46,5 +49,12 @@
       </form>
     </div>
   </div>
+
+</div>
+
+
+
+
+
 
 
