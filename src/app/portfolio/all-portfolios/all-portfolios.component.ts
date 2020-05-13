@@ -35,7 +35,7 @@ export class AllPortfoliosComponent implements OnInit {
 
 
   get portfolios$(): Observable<Portfolio[]> {
-    return this._fetchPortfolios$;
+      return this._fetchPortfolios$;
   }
 
   nieuwPortfolioClicked(): void{
