@@ -10,13 +10,23 @@ import { CoinDataService } from '../coin-data.service';
 })
 export class CoinDetailComponent implements OnInit {
   public coin: Coin;
+  public error: string;
 
   constructor(
      private route: ActivatedRoute,
-     private coinDataService: CoinDataService) { }
+     private _data: CoinDataService) { }
+
 
   ngOnInit(): void {
-    this.route.data.subscribe(item => (this.coin = item['coin']));
+   this.loadCoin();
+  }
+
+  loadCoin(){
+    const coinID=this.route.snapshot.paramMap.get('id');
+    this._data.getCoin$(coinID).subscribe(
+      data=> this.coin=data,
+      error => this.error=error
+    )
   }
 
 

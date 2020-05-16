@@ -1,5 +1,6 @@
 @import "../../main-styles.scss";
 
+
 .navbar-menu {
   background-color: $dark-grey;
 
@@ -46,6 +47,10 @@
     &:hover {
       background-color:lightslategrey;
       font-weight: bold;
+    }
+
+    &:active{
+      background-color: $purple;
     }
   }
 }

@@ -28,7 +28,7 @@ export class CoinDataService {
   getCoin$(id: string): Observable<Coin> {
     return this.http
       .get(`${environment.apiUrl}/coins/get=${id}`)
-      .pipe(catchError(this.handleError), map(Coin.fromJSON)); // returns just one recipe, as json
+      .pipe(catchError(this.handleError), map(Coin.fromJSON));
   }
 
 
