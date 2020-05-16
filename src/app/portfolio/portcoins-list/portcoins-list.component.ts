@@ -10,23 +10,24 @@ import { Portfolio } from '../portfolio.model';
   styleUrls: ['./portcoins-list.component.scss']
 })
 export class PortcoinsListComponent implements OnInit {
-  @Input() portfolioNaam:string;
-  public _fetchPortCoins$: Observable<PortCoin[]>;
+  @Input() portfolioNaam:string="Main";
+  public _fetchPortCoins$: Observable<PortCoin[]>=this._data.fetchPortCoins$("Main");
+  public error:string;
+
 
 
 
   constructor(private _data: PortfolioDataService) {
-    this._fetchPortCoins$=this._data.fetchPortCoins$(this.portfolioNaam);
-    console.log(this._fetchPortCoins$);
   }
 
   ngOnInit(): void {
-
   }
 
 //hier nog invullen met gekozen portfolio
   get portCoins$(): Observable<PortCoin[]> {
-     return this._data.fetchPortCoins$(this.portfolioNaam);
+    console.log("get portcoins aangesproken");
+   // console.log(this._fetchPortCoins$);
+     return this._fetchPortCoins$;
   }
 
 }

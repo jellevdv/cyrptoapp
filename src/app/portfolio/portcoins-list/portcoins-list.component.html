@@ -25,16 +25,17 @@
 
 
 <div class="card ">
-  <div class="card-item " *ngFor="let portcoin of (_fetchPortCoins$ | async)" >
+  <!--
+  <div class="card-item " *ngFor="let portcoin of (portCoins$ | async)" >
     <div class="currency level-item">
     <div class="coin-name">
-      <p>{{portcoin.amount}}</p>
+      <p>{{portcoin.id}}</p>
     </div>
    </div>
 
     <div class="price level-item">
     <div class="coin-price">
-      <p>${{portcoin.coin}} <small>({{portcoin.coin}}%)</small></p>
+      <p>${{portcoin.amount}} <small>({{portcoin.coin}}%)</small></p>
     </div>
     </div>
 
@@ -45,7 +46,10 @@
     </div>
     <a class="delete is-medium" ></a>
   </div>
-
+-->
+<div class="card-item" *ngFor="let p of (portCoins$ | async)">
+  <p>{{p.amount}}</p>
+</div>
 </div>
 
 
