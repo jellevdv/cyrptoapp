@@ -7,18 +7,23 @@ import { NewsDataService } from '../news-data.service';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent implements OnInit {
-  objectKeys = Object.keys;
-  articles: any;
+  mArticles:Array<any>;
+	mSources:Array<any>;
+
 
   constructor(private _data: NewsDataService) { }
 
   ngOnInit(): void {
-    this._data.getArticles()
-      .subscribe(res => {
-        this.articles = res;
-        //console.log(res);
-      });
+ //load articles
+ this._data.initArticles().subscribe(data => this.mArticles = data['articles']);
+ //load news sources
+ this._data.initSources().subscribe(data=> this.mSources = data['sources']);
   }
+
+  searchArticles(source){
+		console.log("selected source is: "+source);
+		this._data.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
+	}
 
 
 }

@@ -1,4 +1,23 @@
-.message{
-  margin: 15px;
-  max-width: 70%;
+@import '../../../main-styles.scss';
+
+.card{
+ max-width: 70%;
+  margin: 1.2em;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    background-color: lightgrey;
+  }
+  .image{
+    max-width: 250px;
+    max-height: 250px;
+    padding: 5px;
+  }
+
+  .a{
+    color: $green;
+    &:hover{
+      font-weight:bold;
+    }
+  }
 }

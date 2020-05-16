@@ -11,31 +11,25 @@ import "rxjs/add/operator/map";
   providedIn: 'root'
 })
 export class NewsDataService {
-  private _topArticles: any;
+  api_key = '4f7917f7b16a4a438143eb41a7bf30d5';
 
 
-  constructor(private _http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
-  getArticles() {
-    return this._http
-      .get(
-        "http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-05&sortBy=publishedAt&apiKey=e6839081a22f4cdd9f41d2cca4a69bfd"
-      )
-      .map((result) => (this._topArticles = result));
-  }
+  initSources(){
+    return this.http.get('https://newsapi.org/v2/sources?language=en&apiKey='+this.api_key);
+   }
 
-/*
-  get articles$(): Observable<Article[]> {
-    return this._http.get("http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-05&sortBy=publishedAt&apiKey=1c452bc507eaf0b876079c353d2364d8")
-    .pipe(
-      tap(console.log),
-      shareReplay(1),
-      catchError(this.handleError),
-      map((list: any[]): Article[] => list.map(Article.fromJSON))
-    );
-  }
-  */
+
+   initArticles(){
+    return this.http.get('https://newsapi.org/v2/everything?q=bitcoin&apiKey='+this.api_key);
+   }
+
+   getArticlesByID(source: String){
+    return this.http.get('https://newsapi.org/v2/top-headlines?sources='+source+'&apiKey='+this.api_key);
+   }
+
 
 
 }

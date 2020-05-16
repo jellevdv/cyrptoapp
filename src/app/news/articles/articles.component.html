@@ -1,11 +1,27 @@
-<!-- <div class="card" *ngFor="let article of objectKeys(articles)">
-  <h1>{{article}}</h1>
-</div> -->
-<article class="message is-warning">
-  <div class="message-header">
-    <p>News</p>
+
+<div class="card" *ngFor="let article of mArticles" >
+  <div class="card-image">
+    <figure class="image ">
+      <img src={{article.urlToImage}} alt="Placeholder image">
+    </figure>
   </div>
-  <div class="message-body">
-    <strong>Coming soon</strong>
+  <div class="card-content">
+    <p class="title">
+      {{article.title}}
+    </p>
+    <p class="subtitle">
+      - {{article.author}} ({{article.publishedAt | date: 'dd/MM/yyyy'}})
+    </p>
+    <p class="subtitle">
+      {{article.description}}
+    </p>
   </div>
-</article>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        Read full article <a class="a" href={{article.url}}>here</a>
+      </span>
+    </p>
+  </footer>
+</div>
+
