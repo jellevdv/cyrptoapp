@@ -10,6 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 
 @Component({
   selector: 'app-all-portfolios',
@@ -17,6 +18,7 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./all-portfolios.component.scss']
 })
 export class AllPortfoliosComponent implements OnInit {
+  loggedInUser$ = this._authenticationService.user$;
   private _fetchPortfolios$: Observable<Portfolio[]>= this._data.portfolios$;
   niewPortfolioMaken: boolean;
   public newPortfolio: FormGroup;
@@ -26,7 +28,7 @@ export class AllPortfoliosComponent implements OnInit {
   naam: string="";
 
   constructor(private _data: PortfolioDataService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,  private _authenticationService: AuthenticationService,) { }
 
   ngOnInit(): void {
     this.newPortfolio = this.fb.group({
