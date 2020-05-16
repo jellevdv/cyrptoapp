@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let coin of (coins$ | async )" class="tr" >
-      <th>Logo</th>
+      <th><img src='{{coin.logo}}' alt="logo" height="42" width="42"></th>
       <td>{{coin.name}}</td>
       <td>${{coin.price}}</td>
       <td [ngClass]="{ 'pos': coin.procent >=0, 'neg': coin.procent < 0 }">{{coin.procent}}%</td>

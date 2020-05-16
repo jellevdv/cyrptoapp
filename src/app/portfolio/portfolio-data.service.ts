@@ -27,7 +27,7 @@ export class PortfolioDataService {
   getportfolio$(name: string): Observable<Portfolio> {
     return this.http
       .get(`${environment.apiUrl}/portfolios/get=${name}`)
-      .pipe(catchError(this.handleError), map(Portfolio.fromJSON)); // returns just one recipe, as json
+      .pipe(catchError(this.handleError), map(Portfolio.fromJSON));
   }
 
   addNewPortfolio(portfolio: Portfolio) {
