@@ -9,7 +9,7 @@
     <span class="panel-icon">
       <i class="fas fa-wallet" aria-hidden="true" ></i>
     </span>
-    <div (click)="bepPortfolioClicked(portfolio)"> {{portfolio.name}}</div>
+    <div (click)="bepPortfolioClicked(portfolio)" data-cy="portfolioDiv"> {{portfolio.name}}</div>
 
     <div (click)="deleteClicked(portfolio)"><a class="far fa-trash-alt" ></a> <br></div>
 
@@ -34,7 +34,7 @@
         <div class="field">
           <label class="label">Name portfolio</label>
           <div class="control">
-            <input class="input"  placeholder="Name" formControlName="name"  aria-label="name">
+            <input class="input"  placeholder="Name" formControlName="name"  aria-label="name" data-cy="name">
           </div>
         </div>
         <p class="error" *ngIf="errorMessage" data-cy="appError">
