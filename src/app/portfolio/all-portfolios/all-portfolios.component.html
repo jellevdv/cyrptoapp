@@ -2,7 +2,7 @@
 <article class="panel is-primary">
   <p class="panel-heading">
     Portfolios
-    <i class="fas fa-plus-circle plus" (click)="nieuwPortfolioClicked()"></i>
+    <i class="fas fa-plus-circle plus" id="new-port-btn" (click)="nieuwPortfolioClicked()"></i>
   </p>
   <a class="panel-block" *ngFor="let portfolio of (portfolios$ | async )"
   [ngClass]="{ 'actief': portfolio==gekozenPortfolio}" >
@@ -44,7 +44,7 @@
 
 
       <footer class="modal-card-foot">
-        <button class="button is-success" type="submit">Make new portfolio</button>
+        <button class="button is-success" type="submit" data-cy="submit-btn">Make new portfolio</button>
         <button class="button" (click)=closeClicked()>Cancel</button>
       </footer>
 
@@ -63,7 +63,7 @@
     </div>
     <div class="message-body">
       To use our portfolio module please
-      <strong><a href='/register'>make an account</a></strong> or
+      <strong><a id='register' href='/register'>make an account</a></strong> or
       <strong><a id="login" href='/login'>log in</a></strong>.
     </div>
   </article>
