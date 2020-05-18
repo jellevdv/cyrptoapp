@@ -1,7 +1,7 @@
 
 <nav class="level portNaam">
   <div class="titel">
-  <h1> {{portfolioNaam}}</h1>
+  <h1 class="naam"> {{portfolioNaam}}</h1>
 </div>
 
 </nav>
@@ -25,31 +25,73 @@
 
 
 <div class="card ">
-  <!--
-  <div class="card-item " *ngFor="let portcoin of (portCoins$ | async)" >
+  <div class="card-item "> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
     <div class="currency level-item">
     <div class="coin-name">
-      <p>{{portcoin.id}}</p>
+      <p>Ethereum</p>
     </div>
    </div>
 
     <div class="price level-item">
     <div class="coin-price">
-      <p>${{portcoin.amount}} <small>({{portcoin.coin}}%)</small></p>
+      <p>$174.18 <small> (1.85%)</small></p>
     </div>
     </div>
 
     <div class="balance level-item">
       <div class="coin-total-value">
-        <p>$5<small>({{portcoin.amount}} {{portcoin.coin}})</small></p>
+        <p>$435.45<small> (2.5 ETH)</small></p>
       </div>
     </div>
     <a class="delete is-medium" ></a>
   </div>
--->
-<div class="card-item" *ngFor="let p of (portCoins$ | async)">
-  <p>{{p.amount}}</p>
-</div>
+
+    <div class="card-item "> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
+      <div class="currency level-item">
+      <div class="coin-name">
+        <p>Bitcoin</p>
+      </div>
+     </div>
+
+      <div class="price level-item">
+      <div class="coin-price">
+        <p>$7154.22 <small> (0.67%)</small></p>
+      </div>
+      </div>
+
+      <div class="balance level-item">
+        <div class="coin-total-value">
+          <p>$150.24<small> (0.021 BTC)</small></p>
+        </div>
+      </div>
+      <a class="delete is-medium" ></a>
+    </div>
+
+
+      <div class="card-item "> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
+        <div class="currency level-item">
+        <div class="coin-name">
+          <p>Litecoin</p>
+        </div>
+       </div>
+
+        <div class="price level-item">
+        <div class="coin-price">
+          <p>$43.04 <small> (1.1%)</small></p>
+        </div>
+        </div>
+
+        <div class="balance level-item">
+          <div class="coin-total-value">
+            <p>$989.92<small> (23 LTC)</small></p>
+          </div>
+        </div>
+        <a class="delete is-medium" ></a>
+      </div>
 </div>
 
+
+<div  class="tv">
+    <h2>Total Value: $1.575,61</h2>
+</div>
 

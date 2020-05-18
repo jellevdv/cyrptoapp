@@ -14,6 +14,10 @@
 }
 }
 
+.tv{
+  margin-left: 760px;
+  font-size: 50px;
+}
 //card items
 .card{
   width: 70%;
@@ -22,6 +26,8 @@
   background-color: C0C0C0;
   margin:1.1em;
   margin-bottom: 0.9em;
+
+
 
 .card-item{
   display: flex;
@@ -87,8 +93,16 @@
     align-items: center;
     background-color: $purple;
 
+
     .titel{
       padding: 5px;
       color: $light-grey;
+
+      .naam{
+        font-size: 32px;
+        padding-left: 500px;
+        margin: 7px;
+        padding:7px;
+      }
     }
 }
