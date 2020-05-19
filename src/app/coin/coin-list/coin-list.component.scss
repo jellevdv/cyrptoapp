@@ -3,8 +3,12 @@
 .table{
   width: 70%;
   margin: 25px;
+  padding: 5px;
 
-
+.th{
+  font-size: 25px;
+  padding-left: -10px;
+}
   .tr{
     &:hover{
       background-color:$light-grey;

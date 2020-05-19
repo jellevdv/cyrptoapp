@@ -16,13 +16,13 @@
               formControlName="firstname"
             />
 
-            <p
+            <mat-error
               *ngIf="
                 user.get('firstname').errors && user.get('firstname').touched
               "
             >
               {{ getErrorMessage(user.get('firstname').errors) }}
-          </p>
+          </mat-error>
           </div>
           <div class="field">
             Last name
@@ -33,13 +33,13 @@
               formControlName="lastname"
             />
 
-            <p
+            <mat-error
               *ngIf="
                 user.get('lastname').errors && user.get('lastname').touched
               "
             >
               {{ getErrorMessage(user.get('lastname').errors) }}
-          </p>
+          </mat-error>
           </div>
         </span>
         <div class="field">
@@ -68,7 +68,7 @@
               data-cy="register-password"
               formControlName="password"
             />
-            <p
+            <mat-error
               *ngIf="
                 user.get('passwordGroup').get('password').errors &&
                 user.get('passwordGroup').get('password').touched
@@ -79,7 +79,7 @@
                   user.get('passwordGroup').get('password').errors
                 )
               }}
-            </p>
+            </mat-error>
           </div>
           <div class="field">
             Password confirmation
@@ -91,7 +91,7 @@
               data-cy="register-confirm-password"
               formControlName="confirmPassword"
             />
-           <p
+           <mat-error
               *ngIf="
                 user.get('passwordGroup').get('confirmPassword').errors &&
                 user.get('passwordGroup').get('confirmPassword').touched
@@ -102,7 +102,7 @@
                   user.get('passwordGroup').get('confirmPassword').errors
                 )
               }}
-            </p>
+            </mat-error>
           </div>
           <mat-error
             *ngIf="
@@ -136,9 +136,6 @@
         <a class="login" [routerLink]="['/login']">Already have an account? Log in here</a>
       </footer>
     </form>
-    <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
-      got an error while loading the recipe list: {{ errorMessage }}
-    </mat-card>
   </div>
   </div>
 

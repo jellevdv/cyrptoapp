@@ -4,7 +4,7 @@
     <form [formGroup]="user" (ngSubmit)="onSubmit()">
     <header class="modal-card-head">
       <p class="modal-card-title">Login</p>
-      <button class="delete" aria-label="close"></button>
+      <button class="delete" aria-label="close"  [routerLink]="['/coins/list']"></button>
     </header>
 
 
@@ -46,7 +46,7 @@
 
 
     <footer class="modal-card-foot">
-      <button class="button is-success" data-cy="login-button" 
+      <button class="button is-success" data-cy="login-button"
       >Login</button>
       <button class="button" [routerLink]="['/coins/list']">Cancel</button>
       <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
