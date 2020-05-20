@@ -1,12 +1,9 @@
-/// <reference types="cypress" />
 
-import { getMaxListeners } from "cluster";
-import { createArrayBindingPattern } from "typescript";
+describe('Register passwords do not match',()=>{
 
-describe('Register',()=>{
-
-  const email = 'test@gmail.com'
-  const pass = 'P@ssword1';
+  const email = 'test2@gmail.com'
+  const pass1 = 'P@ssword1';
+  const pass2 = "P@ssword2";
   const firstname="Jelle";
   const lastname="TestName";
 
@@ -32,11 +29,10 @@ describe('Register',()=>{
     cy.get('[data-cy=register-firstname]').type(firstname);
     cy.get('[data-cy=register-lastname]').type(lastname);
     cy.get('[data-cy=register-email]').type(email);
-    cy.get('[data-cy=register-password]').type(pass);
-    cy.get('[data-cy=register-confirm-password]').type(pass);
+    cy.get('[data-cy=register-password]').type(pass1);
+    cy.get('[data-cy=register-confirm-password]').type(pass2);
     cy.get('[data-cy=register-button]' ).click();
-    cy.get('#pm').click();
-    cy.contains('Currency');
+    cy.contains("passwords are not the same");
 
   });
 
