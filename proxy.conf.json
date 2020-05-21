@@ -1,10 +1,6 @@
 {
   "/api": {
-    "target": {
-      "host": "localhost",
-      "protocol": "https:",
-      "port": 5001
-    },
+    "target": "https://cryptoapijelle.azurewebsites.net/",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "info"
