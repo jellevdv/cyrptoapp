@@ -28,6 +28,17 @@ export class Coin {
     return c;
   }
 
+  toJSON(): CoinJson {
+    return <CoinJson>{
+      name: this.name,
+      symbol:this.symbol,
+      logo:this.logo,
+      price:this.price,
+      procent:this.procent,
+      description:this.description
+    };
+  }
+
   get id(): number {
     return this._id;
   }

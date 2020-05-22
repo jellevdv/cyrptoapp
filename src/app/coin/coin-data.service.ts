@@ -31,6 +31,17 @@ export class CoinDataService {
       .pipe(catchError(this.handleError), map(Coin.fromJSON));
   }
 
+  addNewCoin(coin: Coin) {
+    console.log("service");
+    return this.http
+      .post(`${environment.apiUrl}/Coins/`, coin.toJSON())
+      .pipe(catchError(this.handleError), map(Coin.fromJSON))
+      .pipe(
+        catchError((err) => {
+          return throwError(err);
+        })
+      );
+  }
 
 
   handleError(err: any): Observable<never> {

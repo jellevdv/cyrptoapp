@@ -5,6 +5,8 @@ import { CoinListComponent } from './coin-list/coin-list.component';
 import { CoinResolver } from './CoinResolver';
 import { Routes } from '@angular/router';
 import { CoinFilterPipe } from './coin-filter.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '..//material/material.module';
 
 
 const routes: Routes = [
@@ -21,7 +23,7 @@ const routes: Routes = [
     CoinListComponent,
     CoinFilterPipe],
   imports: [
-    CommonModule
+    CommonModule,ReactiveFormsModule,MaterialModule
   ],
   exports: [
      CoinListComponent,

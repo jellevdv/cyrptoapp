@@ -16,3 +16,108 @@
     </tr>
   </tbody>
 </table>
+
+<section class="buttons">
+  <button class="button is-primary "  (click)="newClicked()">
+    <i class="fas fa-plus" aria-hidden="true"></i>
+    &nbsp; Add your own coin
+  </button>
+
+
+<!--modal om je eigen coin toe te voegen-->
+<div *ngIf="nieuw">
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">New coin</p>
+      <button class="delete" aria-label="close" (click)=closeClicked()></button>
+    </header>
+
+    <form [formGroup]="coinAdd" (ngSubmit)="onSubmit()">
+    <section class="modal-card-body">
+
+      <div class="field">
+        <label class="label">Name for your coin</label>
+        <div class="control">
+          <input class="input"  placeholder="Name" formControlName="cName"  aria-label="name" data-cy="name">
+        </div>
+        <mat-error
+        *ngIf="coinAdd.get('cName').errors && coinAdd.get('cName').touched" >
+        {{ getErrorMessage(coinAdd.get('cName').errors) }}
+      </mat-error>
+      </div>
+
+      <div class="field">
+        <label class="label">Symbol for your coin</label>
+        <div class="control">
+          <input class="input"  placeholder="Symbol" formControlName="cSymbol"  aria-label="symbol" data-cy="symbol">
+        </div>
+        <mat-error
+        *ngIf="coinAdd.get('cSymbol').errors && coinAdd.get('cSymbol').touched" >
+        {{ getErrorMessage(coinAdd.get('cSymbol').errors) }}
+      </mat-error>
+      </div>
+
+      <div class="field">
+        <label class="label">Price</label>
+        <div class="control">
+          <input class="input"  placeholder="$99" formControlName="cPrice"  aria-label="price" data-cy="price">
+        </div>
+        <mat-error
+        *ngIf="coinAdd.get('cPrice').errors && coinAdd.get('cPrice').touched" >
+        {{ getErrorMessage(coinAdd.get('cPrice').errors) }}
+      </mat-error>
+      </div>
+
+      <div class="field">
+        <label class="label">Procent change 24h</label>
+        <div class="control">
+          <input class="input"  placeholder="%4.2" formControlName="cProcent"  aria-label="procent" data-cy="procent">
+        </div>
+        <mat-error
+        *ngIf="coinAdd.get('cProcent').errors && coinAdd.get('cProcent').touched" >
+        {{ getErrorMessage(coinAdd.get('cProcent').errors) }}
+      </mat-error>
+      </div>
+
+      <div class="field">
+        <label class="label">Describe your coin</label>
+        <div class="control">
+          <input class="input"  placeholder="Description" formControlName="cDescription"  aria-label="description" data-cy="description">
+        </div>
+        <mat-error
+        *ngIf="coinAdd.get('cDescription').errors && coinAdd.get('cDescription').touched" >
+        {{ getErrorMessage(coinAdd.get('cDescription').errors) }}
+      </mat-error>
+      </div>
+
+      <div class="field">
+        <label class="label">Url to the logo of your coin</label>
+        <div class="control">
+          <input class="input"  placeholder="url" formControlName="cLogo"  aria-label="logo" data-cy="logo">
+        </div>
+        <mat-error
+        *ngIf="coinAdd.get('cLogo').errors && coinAdd.get('cLogo').touched" >
+        {{ getErrorMessage(coinAdd.get('cLogo').errors) }}
+      </mat-error>
+      </div>
+
+
+
+
+
+    </section>
+
+
+    <footer class="modal-card-foot">
+      <button class="button is-success" type="submit" data-cy="submit-btn">Make new portfolio</button>
+      <button class="button" (click)=closeClicked()>Cancel</button>
+    </footer>
+
+  </form>
+
+  </div>
+</div>
+
+<p>{{message}}</p>
