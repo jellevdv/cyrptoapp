@@ -13,14 +13,26 @@ export class PortcoinsListComponent implements OnInit {
   @Input() portfolioNaam:string="Main";
   public _fetchPortCoins$: Observable<PortCoin[]>=this._data.fetchPortCoins$("Main");
   public error:string;
+  public totalValue:number=1575.61;
 
 
 
 
   constructor(private _data: PortfolioDataService) {
+
   }
 
   ngOnInit(): void {
+
+  }
+
+  deleteClicked(element: number):void{
+    document.getElementById(element.toString()).remove();
+    switch(element){
+      case(1): this.totalValue-=435.45;
+      case(2): this.totalValue-=150.24;
+      case(3): this.totalValue-=989.92;
+    }
   }
 
 //hier nog invullen met gekozen portfolio

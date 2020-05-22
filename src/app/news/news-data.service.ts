@@ -17,7 +17,7 @@ export class NewsDataService {
   constructor(private http: HttpClient) { }
 
 
-  initSources(){
+ initSources(){
     return this.http.get('https://newsapi.org/v2/sources?language=en&apiKey='+this.api_key);
    }
 
@@ -29,7 +29,6 @@ export class NewsDataService {
    getArticlesByID(source: String){
     return this.http.get('https://newsapi.org/v2/top-headlines?sources='+source+'&apiKey='+this.api_key);
    }
-
 
 
 }

@@ -25,7 +25,7 @@
 
 
 <div class="card ">
-  <div class="card-item "> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
+  <div class="card-item " id="1"> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
     <div class="currency level-item">
     <div class="coin-name">
       <p>Ethereum</p>
@@ -43,10 +43,10 @@
         <p>$435.45<small> (2.5 ETH)</small></p>
       </div>
     </div>
-    <a class="delete is-medium" ></a>
+    <a class="delete is-medium" (click)=deleteClicked(1) ></a>
   </div>
 
-    <div class="card-item "> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
+    <div class="card-item " id="2"> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
       <div class="currency level-item">
       <div class="coin-name">
         <p>Bitcoin</p>
@@ -64,11 +64,11 @@
           <p>$150.24<small> (0.021 BTC)</small></p>
         </div>
       </div>
-      <a class="delete is-medium" ></a>
+      <a class="delete is-medium"  (click)="deleteClicked(2)"></a>
     </div>
 
 
-      <div class="card-item "> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
+      <div class="card-item " id="3"> <!--   *ngFor="let portcoin of (portCoins$ | async)"   -->
         <div class="currency level-item">
         <div class="coin-name">
           <p>Litecoin</p>
@@ -86,12 +86,16 @@
             <p>$989.92<small> (23 LTC)</small></p>
           </div>
         </div>
-        <a class="delete is-medium" ></a>
+        <a class="delete is-medium"  (click)=deleteClicked(3) ></a>
       </div>
 </div>
 
 
 <div  class="tv">
-    <h2>Total Value: $1.575,61</h2>
+    <h2>Total Value: ${{totalValue.toFixed(2)}}</h2>
+</div>
+
+<div>
+  {{error}}
 </div>
 

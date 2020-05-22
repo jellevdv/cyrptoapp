@@ -1,6 +1,10 @@
 {
   "/api": {
-    "target": "https://cryptoapijellevandevyvere.azurewebsites.net/",
+    "target": {
+      "host": "localhost",
+      "protocol": "https:",
+      "port": 5001
+    },
     "secure": false,
     "changeOrigin": true,
     "logLevel": "info"
