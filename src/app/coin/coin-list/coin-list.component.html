@@ -18,7 +18,7 @@
 </table>
 
 <section class="buttons">
-  <button class="button is-primary "  (click)="newClicked()">
+  <button class="button is-primary " id="addCoin"  (click)="newClicked()">
     <i class="fas fa-plus" aria-hidden="true"></i>
     &nbsp; Add your own coin
   </button>
@@ -40,7 +40,7 @@
       <div class="field">
         <label class="label">Name for your coin</label>
         <div class="control">
-          <input class="input"  placeholder="Name" formControlName="cName"  aria-label="name" data-cy="name">
+          <input class="input"  placeholder="Name" formControlName="cName"  aria-label="name" data-cy="cName">
         </div>
         <mat-error
         *ngIf="coinAdd.get('cName').errors && coinAdd.get('cName').touched" >
@@ -51,7 +51,7 @@
       <div class="field">
         <label class="label">Symbol for your coin</label>
         <div class="control">
-          <input class="input"  placeholder="Symbol" formControlName="cSymbol"  aria-label="symbol" data-cy="symbol">
+          <input class="input"  placeholder="Symbol" formControlName="cSymbol"  aria-label="symbol" data-cy="cSymbol">
         </div>
         <mat-error
         *ngIf="coinAdd.get('cSymbol').errors && coinAdd.get('cSymbol').touched" >
@@ -62,7 +62,7 @@
       <div class="field">
         <label class="label">Price</label>
         <div class="control">
-          <input class="input"  placeholder="$99" formControlName="cPrice"  aria-label="price" data-cy="price">
+          <input class="input"  placeholder="$99" formControlName="cPrice"  aria-label="price" data-cy="cPrice">
         </div>
         <mat-error
         *ngIf="coinAdd.get('cPrice').errors && coinAdd.get('cPrice').touched" >
@@ -73,7 +73,7 @@
       <div class="field">
         <label class="label">Procent change 24h</label>
         <div class="control">
-          <input class="input"  placeholder="%4.2" formControlName="cProcent"  aria-label="procent" data-cy="procent">
+          <input class="input"  placeholder="%4.2" formControlName="cProcent"  aria-label="procent" data-cy="cProcent">
         </div>
         <mat-error
         *ngIf="coinAdd.get('cProcent').errors && coinAdd.get('cProcent').touched" >
@@ -84,7 +84,7 @@
       <div class="field">
         <label class="label">Describe your coin</label>
         <div class="control">
-          <input class="input"  placeholder="Description" formControlName="cDescription"  aria-label="description" data-cy="description">
+          <input class="input"  placeholder="Description" formControlName="cDescription"  aria-label="description" data-cy="cDescription">
         </div>
         <mat-error
         *ngIf="coinAdd.get('cDescription').errors && coinAdd.get('cDescription').touched" >
@@ -95,7 +95,7 @@
       <div class="field">
         <label class="label">Url to the logo of your coin</label>
         <div class="control">
-          <input class="input"  placeholder="url" formControlName="cLogo"  aria-label="logo" data-cy="logo">
+          <input class="input"  placeholder="url" formControlName="cLogo"  aria-label="logo" data-cy="cLogo">
         </div>
         <mat-error
         *ngIf="coinAdd.get('cLogo').errors && coinAdd.get('cLogo').touched" >
@@ -111,7 +111,7 @@
 
 
     <footer class="modal-card-foot">
-      <button class="button is-success" type="submit" data-cy="submit-btn">Make new portfolio</button>
+      <button class="button is-success" type="submit" data-cy="submit-btn" id="submitClicked">Make new coin</button>
       <button class="button" (click)=closeClicked()>Cancel</button>
     </footer>
 
