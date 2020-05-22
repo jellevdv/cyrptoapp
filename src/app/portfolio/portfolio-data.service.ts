@@ -57,7 +57,6 @@ fetchPortCoins$(portfolioName: string):Observable<PortCoin[]>  {
    }else{
     console.log("Fetchportcoins aangeroepen main");
 
-
     return this.http
       .get(`${environment.apiUrl}/portfolios/get=Main`)
       .pipe(tap(console.log),catchError(this.handleError), map(Portfolio.fromJSON))
