@@ -4,6 +4,7 @@ import { AllPortfoliosComponent } from './all-portfolios/all-portfolios.componen
 import { PortcoinsListComponent } from './portcoins-list/portcoins-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddEditComponent } from './add-edit/add-edit.component';
+import { MaterialModule } from '..//material/material.module';
 
 
 
@@ -11,7 +12,8 @@ import { AddEditComponent } from './add-edit/add-edit.component';
   declarations: [AllPortfoliosComponent, PortcoinsListComponent, AddEditComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
   exports:[
     AllPortfoliosComponent, PortcoinsListComponent

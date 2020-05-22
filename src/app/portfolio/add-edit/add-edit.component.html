@@ -1,26 +1,38 @@
 <div *ngIf="addClickedB">
   <div class="formulier">
-    <div class="field has-addons">
+    <form class="formulier" [formGroup]="coinAdd" (ngSubmit)="onSubmit()">
+
+    <div class="field">
       <div class="control">
         <input  class="input" type="text"
         placeholder="filter"
         type="text"
-        data-cy="filterInput"
+        formControlName="coinSymbol"
         type='text'
-        placeholder='Coin name' >
+        placeholder='Coin symbol' >
       </div>
       <div class="control">
-
+        <mat-error
+        *ngIf="coinAdd.get('coinSymbol').errors && coinAdd.get('coinSymbol').touched" >
+        {{ getErrorMessage(coinAdd.get('coinSymbol').errors) }}
+      </mat-error>
       </div>
     </div>
+
     <div class="field">
       <div class="control">
-        <input class="input" type="text" placeholder="Amount">
+        <input class="input" type="text" placeholder="Amount"  formControlName="amount">
       </div>
       <div class="control">
-
+        <mat-error
+        *ngIf="coinAdd.get('amount').errors && coinAdd.get('amount').touched"
+      >
+        {{ getErrorMessage(coinAdd.get('amount').errors) }}
+      </mat-error>
       </div>
     </div>
+
+
     <div class="field">
       <div class="control">
         <input class="input" type="text" placeholder="Price paid in Euro">
@@ -47,8 +59,10 @@
         <button class="button" (click)="cancelClicked()">Cancel</button>
       </div>
     </div>
+  </form>
     </div>
 </div>
+
 
 <section class="buttons">
 <button class="button is-primary "  (click)="addClicked()">   <!--fas fa-plus-square -->
