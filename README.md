@@ -1,27 +1,25 @@
 # Cryptoapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+This is a project I made for school. It is a crypto portfolio SPA which is made using the Angular framework. The project enables to track the price of certain coins and their change in the past 24 hours as well as a news feed with articles related to Bitcoin and the Blockchain technology. You can register as a new user to make your own portfolios. The application fetches its data from a selfmade API using .Net. The Api runs on Azure and you can find all of the possible requests at 'https://cryptoapijellevandevyvere.azurewebsites.net/swagger/index.html'. For the design of the site I made use of the Bulma css framework.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## example
+visit 'https://jellevdv.github.io/' to see the application running in real time
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Type `npm start` into your CLI and the project will automatically open in the default browser.
 
-## Running unit tests
+## Login 
+existing user:
+email: `jelle@gmail.com`
+password: `P@ssword1`
+or you can make a new account 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Type `npx cypress open` into the CLI to open up a couple of end-to-end tests using Cypress.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For questions you can always send me a message on github
